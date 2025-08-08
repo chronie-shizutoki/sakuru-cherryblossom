@@ -16,7 +16,8 @@
             android:showWhenLocked="true"
             android:launchMode="singleInstance"
             android:excludeFromRecents="true"
-            android:taskAffinity="">
+            android:taskAffinity=""
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
