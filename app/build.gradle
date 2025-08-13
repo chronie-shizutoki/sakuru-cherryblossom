@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.chronie.sakurublossom"
+    namespace "com.example.sakurublossom"
     compileSdkVersion 36
     buildToolsVersion "36.0.0"
 
     defaultConfig {
-        applicationId "com.chronie.sakurublossom"
+        applicationId "com.example.sakurublossom"
         minSdkVersion 24
         targetSdkVersion 36
         versionCode 1
