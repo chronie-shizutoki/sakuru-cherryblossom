@@ -47,6 +47,15 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleDebug
 
+    - name: Create Tag
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        TAG_NAME="v${{ github.run_number }}"
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git tag $TAG_NAME
+        git push origin $TAG_NAME
+
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -59,6 +68,7 @@ jobs:
       with:
         files: app/build/outputs/apk/release/app-release-unsigned.apk
         name: Automated Build ${{ github.sha }}
+        tag_name: v${{ github.run_number }}
         body: |
           Automated build from commit ${{ github.sha }}
           Build date: ${{ github.event.head_commit.timestamp }}
