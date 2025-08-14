@@ -11,7 +11,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
+import com.example.sakurublossom.R;
 
 public class KeepAliveService extends Service {
     private static final String TAG = "KeepAliveService";

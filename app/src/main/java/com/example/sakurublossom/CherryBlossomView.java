@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.WindowManager;
+import com.example.sakurublossom.R;
 
 import androidx.annotation.Nullable;
 
