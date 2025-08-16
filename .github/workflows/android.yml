@@ -47,8 +47,8 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleRelease
 
-    - name: List Release APK contents
-      run: ls -l app/build/outputs/apk/release/
+    - name: List Build Outputs
+      run: ls -lR app/build/outputs/
 
     - name: Create Tag
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
