@@ -22,8 +22,10 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Print Gradle Version
+      run: ./gradlew --version
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleDebug --stacktrace --info
     - name: List Debug APK Outputs
       run: ls -lR app/build/outputs/apk/debug/
 
