@@ -21,19 +21,20 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        # cache: gradle # 禁用Gradle缓存
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Print Gradle Version
-      run: ./gradlew --version
-
     - name: Build with Gradle
       run: ./gradlew assembleDebug --stacktrace --info
 
-    - name: List all build outputs
-      run: ls -lR app/build/outputs/
+    - name: Check for APK file
+      run: |
+        if [ ! -f app/build/outputs/apk/debug/app-debug.apk ]; then
+          echo "APK not found! Checking for other outputs..."
+          ls -lR app/build/outputs/
+          exit 1
+        fi
 
     - name: Upload Debug APK
       uses: actions/upload-artifact@v4
